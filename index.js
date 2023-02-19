@@ -21,6 +21,7 @@ app.get('/', (req, res)=>{
      res.json({ 
          "veri":veri
      }) 
+     console.log(datos)
    }else{
      
      let veri=false;
@@ -28,7 +29,7 @@ app.get('/', (req, res)=>{
          "veri":veri
      }) 
    }
-     
+    console.log(datos)
  });
 app.post('/registrar', (req, res) => {
    let  usuario=req.body.usuario
@@ -39,7 +40,7 @@ app.post('/registrar', (req, res) => {
      res.json({ 
          "veri":veri
      }) 
-     
+     console.log(datos)
    }else{
      let veri=true;
      res.json({ 
@@ -48,7 +49,7 @@ app.post('/registrar', (req, res) => {
      let temp=[email, usuario, pass]
      datos.push(temp)
    }
-     
+     console.log(datos)
  });
 app.listen(3000, () => {
   console.log('iniciado en http://localhost:3000');
