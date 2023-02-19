@@ -15,14 +15,14 @@ app.get('/', (req, res)=>{
  app.post('/validar', (req, res) => {
    let  usuario=req.body.usuario
    let  pass=req.body.pass
-   if(usuario ==datos.user && pass == datos.pass){
+   let  email=req.body.email
+   if((usuario ==datos.user || email==dato.user)&& pass == datos.pass){
      let veri=true;
      res.json({ 
          "veri":veri
      }) 
    }else{
-     let temp=[email, usuario, pass]
-     datos.push(temp)
+     
      let veri=false;
      res.json({ 
          "veri":veri
@@ -39,6 +39,8 @@ app.post('/registrar', (req, res) => {
      res.json({ 
          "veri":veri
      }) 
+     let temp=[email, usuario, pass]
+     datos.push(temp)
    }else{
      let veri=false;
      res.json({ 
