@@ -34,18 +34,19 @@ app.post('/registrar', (req, res) => {
    let  usuario=req.body.usuario
    let  pass=req.body.pass
    let  email=req.body.email
-   if((usuario !==datos.user || email!==datos.email)&& pass !== datos.pass){
-     let veri=true;
-     res.json({ 
-         "veri":veri
-     }) 
-     let temp=[email, usuario, pass]
-     datos.push(temp)
-   }else{
+   if(usuario ==datos.user || email==datos.email){
      let veri=false;
      res.json({ 
          "veri":veri
      }) 
+     
+   }else{
+     let veri=true;
+     res.json({ 
+         "veri":veri
+     })
+     let temp=[email, usuario, pass]
+     datos.push(temp)
    }
      
  });
